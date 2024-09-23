@@ -13,7 +13,7 @@ import { BsSoundwave } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <div className="w-full h-fit bg-mainDark pt-4 pb-0 lg:py-6 flex justify-center lg:justify-normal items-center flex-col">
+    <div className="w-full h-fit bg-[#0081a1d7] pt-4 pb-0 lg:py-6 flex justify-center lg:justify-normal items-center flex-col">
       <div className="flex justify-between items-center w-full px-3 sm:px-5 lg:px-7 gap-2 sm:gap-5">
         <Link to="/" className="w-fit h-fit">
           <img src={Icon} alt="lumosleep-icon" className="w-24 sm:w-28" />
