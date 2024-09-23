@@ -1,4 +1,4 @@
-const nocturn = "nocturn";
+const lumosleep = "LUMOSLEEP";
 const assets = [
   "/",
   "/index.html",
@@ -6,14 +6,14 @@ const assets = [
   "/icon-256x256.png",
   "/icon-384x384.png",
   "/icon-512x512.png",
-  "/assets/icon-nocturn.png",
-  "/assets/icon-nocturn.svg",
+  "/assets/icon-lumosleep.png",
+  "/assets/icon-lumosleep.svg",
   "/assets/**/*.{js,css,png}",
 ];
 
 self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(
-    caches.open(nocturn).then((cache) => {
+    caches.open(lumosleep).then((cache) => {
       cache.addAll(assets);
     })
   );

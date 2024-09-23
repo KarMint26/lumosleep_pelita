@@ -39,15 +39,15 @@ const Home = () => {
                 className="font-bold text-2xl sm:text-4xl lg:text-6xl"
               >
                 Improve Your Sleep Quality with{" "}
-                <span className="text-mainColor">Nocturn</span>
+                <span className="text-mainColor">Lumosleep</span>
               </h1>
               <p
                 data-aos="fade-right"
                 data-aos-delay="150"
                 className="text-sm md:text-base lg:text-[1.25rem]"
               >
-                Nocturn is an Web app designed to help you improve your sleep.
-                With a range of innovative features, Nocturn becomes a loyal
+                Lumosleep is an Web app designed to help you improve your sleep.
+                With a range of innovative features, Lumosleep becomes a loyal
                 companion on your journey to a deeper and more refreshing sleep.
               </p>
               <div data-aos="fade-right" data-aos-delay="250">
@@ -81,7 +81,7 @@ const Home = () => {
       {/* Try Dream Journal Section */}
       <section
         id="trydj"
-        className="w-full h-fit bg-bgPurpleDark flex items-start justify-start flex-col"
+        className="w-full h-fit bg-mainDark flex items-start justify-start flex-col"
       >
         <img src={WaveBlack} alt="wave-black" className="w-full" />
         <div className="py-4 px-5 sm:px-6 lg:px-8 w-full">
@@ -93,15 +93,14 @@ const Home = () => {
                   data-aos-delay="50"
                   className="font-bold text-2xl sm:text-4xl lg:text-6xl"
                 >
-                  Have you ever woken up feeling confused, wondering what your
-                  dreams mean?
+                  Let's interpret the dream you had last night
                 </h1>
                 <p
                   data-aos="fade-left"
                   data-aos-delay="150"
                   className="text-sm md:text-base lg:text-[1.25rem]"
                 >
-                  Nocturn is here to help! Record your dreams, explore the
+                  Lumosleep is here to help! Record your dreams, explore the
                   details, and discover their meaning with the Journey Dream
                   feature.
                 </p>
@@ -145,7 +144,7 @@ const Home = () => {
                   className="font-bold text-2xl sm:text-4xl lg:text-6xl"
                 >
                   Having trouble sleeping?{" "}
-                  <span className="text-mainColor">Soundscapes Nocturn</span> is
+                  <span className="text-mainColor">Soundscapes Lumosleep</span> is
                   the solution!
                 </h1>
                 <p
@@ -153,7 +152,7 @@ const Home = () => {
                   data-aos-delay="150"
                   className="text-sm md:text-base lg:text-[1.25rem]"
                 >
-                  Nocturn Soundscapes comes with a variety of soothing audios to
+                  Lumosleep Soundscapes comes with a variety of soothing audios to
                   help you fall asleep quickly. Choose the audio that suits your
                   mood, feel your body and mind relax, and enjoy a deep, quality
                   sleep.
@@ -185,7 +184,7 @@ const Home = () => {
       {/* Try Breathing */}
       <section id="trybreathing" className="w-full h-fit mb-8">
         <DefaultView>
-          <div className="bg-bgPurpleDark rounded-2xl p-6 lg:p-8 shadow-mainColor shadow-lg">
+          <div className="bg-mainDark rounded-2xl p-6 lg:p-8 shadow-mainColor shadow-lg">
             <div className="flex flex-col-reverse lg:flex-row-reverse justify-between items-center">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h1
@@ -193,15 +192,14 @@ const Home = () => {
                   data-aos-delay="50"
                   className="font-bold text-2xl sm:text-4xl lg:text-6xl"
                 >
-                  Stress making it harder to sleep? Breathing Nocturn is the
-                  solution!
+                  Breathing Lumosleep overcomes your stress
                 </h1>
                 <p
                   data-aos="fade-left"
                   data-aos-delay="150"
                   className="text-sm md:text-base lg:text-[1.25rem]"
                 >
-                  Breathing Nocturn is the solution! This easy and effective
+                  Breathing Lumosleep is the solution! This easy and effective
                   breathing exercise helps relax your mind and body, so you can
                   sleep better and wake up refreshed.
                 </p>
@@ -243,16 +241,15 @@ const Home = () => {
                   data-aos-delay="50"
                   className="font-bold text-2xl sm:text-4xl lg:text-6xl"
                 >
-                  Have questions about your sleep disorder?{" "}
-                  <span className="text-mainColor">Nocturn Chatbot AI</span> has
-                  the solution for you.
+                  <span className="text-mainColor">Lumosleep Chatbot AI</span>{" "}
+                  helps answer your questions
                 </h1>
                 <p
                   data-aos="fade-right"
                   data-aos-delay="150"
                   className="text-sm md:text-base lg:text-[1.25rem]"
                 >
-                  There are many questions you can ask the chatbot from nocturn,
+                  There are many questions you can ask the chatbot from Lumosleep,
                   including questions about your sleep disorder and other
                   questions related to sleep and sleep problems.
                 </p>
@@ -298,7 +295,7 @@ const Home = () => {
                   <span className="text-mainColor">Here</span>
                 </h2>
                 <p className="text-base text-dark-6">
-                  There is a lot of information related to the Nocturn website,
+                  There is a lot of information related to the Lumosleep website,
                   you can see the list of questions below.
                 </p>
               </div>
@@ -309,8 +306,8 @@ const Home = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div data-aos="zoom-in-down" data-aos-delay="50">
                 <AccordionItem
-                  header="What is the nocturn website?"
-                  text="The nocturn website is a website that is useful for those who are sleep deprived or have poor sleep health."
+                  header="What is the Lumosleep website?"
+                  text="The Lumosleep website is a website that is useful for those who are sleep deprived or have poor sleep health."
                 />
               </div>
               <div data-aos="zoom-in-down" data-aos-delay="200">
@@ -395,7 +392,7 @@ const Home = () => {
                   Our friendly team is here to help.
                 </p>
                 <p className="mt-2 text-sm text-mainColor dark:text-mainColor/90">
-                  nocturn@nocturn.id
+                  lumosleep@lumosleep.id
                 </p>
               </div>
 
@@ -549,8 +546,8 @@ const Home = () => {
                 </div>
 
                 <Link
-                  to={"mailto:nocturn@nocturn.id"}
-                  className="inline-block text-center w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-mainColor rounded-lg hover:bg-bgPurpleDark focus:outline-none focus:ring focus:ring-mainColor focus:ring-opacity-50"
+                  to={"mailto:lumosleep@lumosleep.id"}
+                  className="inline-block text-center w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-mainColor rounded-lg hover:bg-mainDark focus:outline-none focus:ring focus:ring-mainColor focus:ring-opacity-50"
                 >
                   Send message
                 </Link>

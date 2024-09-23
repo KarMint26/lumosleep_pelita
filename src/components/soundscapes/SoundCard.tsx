@@ -55,7 +55,7 @@ const SoundCard = ({
         data-aos-delay={`${delay}`}
         className={`flex justify-center items-center flex-col border-4 ${
           activeTitle === title && isPlay
-            ? "border-mainColor  bg-bgPurpleDark scale-105"
+            ? "border-mainColor  bg-mainDark scale-105"
             : "border-secondaryColor  bg-mainColor"
         } w-full sm:w-[325px] gap-5 sm:gap-6 lg:gap-7 p-5 sm:p-6 rounded-2xl sm:rounded-3xl`}
       >

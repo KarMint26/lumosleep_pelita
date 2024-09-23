@@ -84,14 +84,14 @@ const Soundscapes = () => {
                 className="font-bold text-2xl sm:text-4xl lg:text-6xl"
               >
                 Improve your sleep quality with{" "}
-                <span className="text-mainColor">Nocturn Soundscapes</span>
+                <span className="text-mainColor">lumosleep Soundscapes</span>
               </h1>
               <p
                 data-aos="fade-left"
                 data-aos-delay="150"
                 className="text-sm md:text-base lg:text-[1.25rem]"
               >
-                Nocturn Soundscapes comes with a variety of soothing audios to
+                lumosleep Soundscapes comes with a variety of soothing audios to
                 help you fall asleep quickly. Choose the audio that suits your
                 mood, feel your body and mind relax, and enjoy a deep, quality
                 sleep.
@@ -177,7 +177,7 @@ const Soundscapes = () => {
 
       {/* Audio Player */}
       <div
-        className={`fixed flex items-center justify-center bottom-5 right-[50%] translate-x-[50%] bg-bgPurpleDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-[70%] lg:w-[50%] p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-7 transition-all duration-300 ${
+        className={`fixed flex items-center justify-center bottom-5 right-[50%] translate-x-[50%] bg-mainDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-[70%] lg:w-[50%] p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-7 transition-all duration-300 ${
           isPlay ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
@@ -193,7 +193,7 @@ const Soundscapes = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-3 sm:gap-4 lg:gap-6">
           <h3 className="font-semibold text-base sm:text-3xl lg:text-4xl">
-            Nocturn Soundscapes
+            lumosleep Soundscapes
           </h3>
           <div className="flex justify-center items-center gap-4 sm:gap-5 lg:gap-6 text-xl sm:text-3xl lg:text-4xl">
             <FaForward
@@ -225,7 +225,7 @@ const Soundscapes = () => {
               top: 0,
             });
           }}
-          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
+          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-mainDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
         >
           <LuArrowUpToLine />
         </div>
@@ -239,7 +239,7 @@ const Soundscapes = () => {
       >
         <Link
           to="/chatbot"
-          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
+          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-mainDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
         >
           <RiRobot2Fill />
         </Link>

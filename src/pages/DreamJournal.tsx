@@ -94,7 +94,7 @@ const DreamJournal = () => {
 
         {/* Section Input Dreams */}
         <div
-          className="w-full max-w-7xl m-auto p-5 lg:p-10 rounded-3xl bg-bgPurpleDark shadow-lg mb-5 lg:my-28 shadow-secondaryColor/75"
+          className="w-full max-w-7xl m-auto p-5 lg:p-10 rounded-3xl bg-mainDark shadow-lg mb-5 lg:my-28 shadow-secondaryColor/75"
           id="trydj"
         >
           <div

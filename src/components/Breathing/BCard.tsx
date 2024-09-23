@@ -145,12 +145,12 @@ function BCard({
             />
           </div>
           <div className="flex lg:h-40 lg:mt-3 flex-col justify-between">
-            <div className="text-white p-5 h-full bg-bgPurpleDark rounded-xl lg:w-[400px]">
+            <div className="text-white p-5 h-full bg-mainDark rounded-xl lg:w-[400px]">
               <HiSpeakerphone className="inline mr-3" />
               {textDynamic}
             </div>
             <div className="flex w-full items-center justify-center mt-3 lg:mt-5 gap-3 lg:justify-between">
-              <div className="flex items-center gap-5 rounded-xl bg-bgPurpleDark pr-5">
+              <div className="flex items-center gap-5 rounded-xl bg-mainDark pr-5">
                 <button
                   className="px-5 py-3 bg-white shadow rounded-xl"
                   onClick={() =>
@@ -175,7 +175,7 @@ function BCard({
           </div>
         </div>
       ) : (
-        <div className="w-full mt-3 min-h-44 h-auto bg-bgPurpleDark p-5 rounded-xl">
+        <div className="w-full mt-3 min-h-44 h-auto bg-mainDark p-5 rounded-xl">
           <p className="text-white text-xs lg:text-sm">{description}</p>
         </div>
       )}

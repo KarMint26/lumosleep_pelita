@@ -4,9 +4,9 @@
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
-    "name": "NOCTURN",
-    "short_name": "NOCTURN",
-    "description": "Nocturn is an Web app designed to help you improve your sleep.       With a range of innovative features, Nocturn becomes a loyal       companion on your journey to a deeper and more refreshing sleep.",
+    "name": "LUMOSLEEP",
+    "short_name": "LUMOSLEEP",
+    "description": "Lumosleep is an Web app designed to help you improve your sleep. it a range of innovative features, lumosleep becomes a loyal companion on your journey to a deeper and more refreshing sleep.",
     "icons": [
         {
             "src": "/icon-192x192.png",

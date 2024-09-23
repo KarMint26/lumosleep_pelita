@@ -120,7 +120,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               src={LongIcon}
-              alt="Nocturn-icon"
+              alt="lumosleep-icon"
               className="scale-[0.65] sm:scale-75 lg:scale-100 -translate-x-4 sm:translate-x-0"
             />
           </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
               </Avatar>
               {openProfile && (
                 <>
-                  <div className="absolute w-[180px] h-fit right-0 top-[120%] px-4 py-3 bg-bgPurpleDark rounded-lg ring-2 ring-mainColor">
+                  <div className="absolute w-[180px] h-fit right-0 top-[120%] px-4 py-3 bg-mainDark rounded-lg ring-2 ring-mainColor">
                     <div className="w-full">
                       Welcome {user?.email?.split("@")[0]}!
                     </div>

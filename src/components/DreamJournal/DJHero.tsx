@@ -26,8 +26,8 @@ function DJHero() {
           </div>
           <div data-aos="fade-right" data-aos-delay="150">
             <TextDescription
-              value="Nocturn is an Web app designed to help you improve your sleep.
-                With a range of innovative features, Nocturn becomes a loyal
+              value="Lumosleep is an Web app designed to help you improve your sleep.
+                With a range of innovative features, lumosleep becomes a loyal
                 companion on your journey to a deeper and more refreshing sleep."
             />
           </div>

@@ -25,7 +25,7 @@ function ModalResultDream({ interpret, handleClick }: TypeModal) {
     <div className="w-full h-screen bg-slate-800 p-5 fixed top-0 z-[9999] flex items-center justify-center">
       <div
         data-aos="zoom-in"
-        className="w-full max-w-6xl m-auto rounded-xl bg-bgPurpleDark p-5 lg:p-10 overflow-y-auto"
+        className="w-full max-w-6xl m-auto rounded-xl bg-mainDark p-5 lg:p-10 overflow-y-auto"
       >
         <div className="flex justify-center text-center items-center bg-white/50 px-5 py-5 rounded-xl">
           <div className="flex justify-center items-center font-bold text-center gap-2 sm:gap-3 text-[1rem] sm:text-3xl lg:text-5xl">

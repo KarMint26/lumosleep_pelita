@@ -1,5 +1,5 @@
 import LongIcon from "/assets/long-icon.png";
-import Icon from "/assets/icon-nocturn.png";
+import Icon from "/assets/icon-lumosleep.png";
 import heroHomepage1 from "/assets/homepage/homepage-1.png";
 import heroHomepage2 from "/assets/homepage/homepage-2.png";
 import heroHomepage3 from "/assets/homepage/homepage-3.png";

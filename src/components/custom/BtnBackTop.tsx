@@ -11,7 +11,7 @@ const BtnBackTop = () => {
               top: 0,
             });
           }}
-          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-bgPurpleDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
+          className="text-base sm:text-lg lg:text-xl shadow border-2 border-secondaryColor bg-mainDark transition duration-300 rounded-full p-3 cursor-pointer text-white ring-2 ring-mainColor"
         >
           <LuArrowUpToLine />
         </div>

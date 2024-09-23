@@ -29,7 +29,7 @@ const Chatbot: React.FC = () => {
     {
       id: 1,
       type: "bot",
-      prompt: "Hi!, welcome to nocturn chatbot. you have any question?",
+      prompt: "Hi!, welcome to lumosleep chatbot. you have any question?",
       isLoading: false,
       error: null,
     },
@@ -169,7 +169,7 @@ const Chatbot: React.FC = () => {
                 to="#"
                 className="text-lg sm:text-2xl font-semibold uppercase text-white"
               >
-                Nocturn
+                chatbot
                 <span className="text_purple">AI</span>
               </Link>
               <IoCloseSharp
@@ -180,7 +180,7 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
             <img src={ChatbotHero} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">Nocturn Another Features</p>
+            <p className="text-sm font-semibold">lumosleep Another Features</p>
             <CardLinkChatbot
               LinkUrl="/dream-journal"
               Icon={<FaBookJournalWhills />}
@@ -212,7 +212,7 @@ const Chatbot: React.FC = () => {
         <div
           className={`sidebar fixed ${
             !sideBar ? "-translate-x-[400px]" : "translate-x-0"
-          } lg:translate-x-0 left-0 top-0 lg:translate-y-0 lg:relative hidden lg:flex justify-between items-center flex-col px-6 lg:px-[3.4rem] py-8 h-screen bg-slate-800 border-r-2 border-slate-500 transition text-white`}
+          } lg:translate-x-0 left-0 top-0 lg:translate-y-0 lg:relative hidden lg:flex justify-between items-center flex-col px-6 lg:px-[3.6rem] py-8 h-screen bg-slate-800 border-r-2 border-slate-500 transition text-white`}
         >
           <div className="title-sidebar">
             <div className="nav-brand flex justify-center items-center gap-2 sm:gap-5">
@@ -221,7 +221,7 @@ const Chatbot: React.FC = () => {
                 to="#"
                 className="text-lg sm:text-2xl font-semibold uppercase text-white"
               >
-                Nocturn
+                chatbot
                 <span className="text_purple">AI</span>
               </Link>
               <IoCloseSharp
@@ -232,7 +232,7 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
             <img src={ChatbotHero} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">Nocturn Another Features</p>
+            <p className="text-sm font-semibold">lumosleep Another Features</p>
             <CardLinkChatbot
               LinkUrl="/dream-journal"
               Icon={<FaBookJournalWhills />}
@@ -274,7 +274,7 @@ const Chatbot: React.FC = () => {
               >
                 <h1 className="text-lg sm:text-xl font-semibold uppercase">
                   <span className="sm:inline-block hidden">Hi! Welcome to</span>{" "}
-                  Nocturn
+                  lumosleep
                   <span className="text_purple">AI</span>
                 </h1>
               </Link>
@@ -308,7 +308,7 @@ const Chatbot: React.FC = () => {
                           key={chat.id}
                           className="box-chat p-3 rounded-lg flex justify-start items-center gap-3 bg-gray-700"
                         >
-                          <div className="icon-box self-start p-2 flex justify-center items-center rounded-lg bg-purple-500">
+                          <div className="icon-box self-start p-2 flex justify-center items-center rounded-lg bg-mainColor">
                             <BiSolidBot className="text-white text-2xl" />
                           </div>
                           <div

@@ -99,7 +99,7 @@ const Login = () => {
         </div>
       )}
       <div className="flex flex-row-reverse justify-center items-center overflow-hidden">
-        <div className="w-[50%] h-screen bg-bgPurpleDark lg:flex justify-center items-center hidden">
+        <div className="w-[50%] h-screen bg-mainDark lg:flex justify-center items-center hidden">
           <img
             data-aos="fade-up"
             data-aos-delay="100"
@@ -109,11 +109,11 @@ const Login = () => {
         </div>
         <div className="w-[100%] lg:w-[50%] h-screen flex justify-center items-center relative">
           {/* Decoration */}
-          <div className="ball bg-bgPurpleDark rounded-full w-[150px] h-[150px] absolute -right-[20%] -top-[12%] sm:-right-[10%] sm:-top-[10%] lg:-left-[10%]"></div>
+          <div className="ball bg-mainDark rounded-full w-[150px] h-[150px] absolute -right-[20%] -top-[12%] sm:-right-[10%] sm:-top-[10%] lg:-left-[10%]"></div>
 
-          <div className="ball hidden lg:block bg-bgPurpleDark rounded-full w-[150px] h-[150px] absolute -left-[10%] -bottom-[10%]"></div>
+          <div className="ball hidden lg:block bg-mainDark rounded-full w-[150px] h-[150px] absolute -left-[10%] -bottom-[10%]"></div>
 
-          <div className="ball block lg:hidden bg-bgPurpleDark rounded-full w-[150px] h-[150px] absolute -left-[20%] -bottom-[12%] sm:-left-[10%] sm:-bottom-[10%]"></div>
+          <div className="ball block lg:hidden bg-mainDark rounded-full w-[150px] h-[150px] absolute -left-[20%] -bottom-[12%] sm:-left-[10%] sm:-bottom-[10%]"></div>
 
           <div
             data-aos="zoom-in"
@@ -124,7 +124,7 @@ const Login = () => {
               <img src={LongIcon} alt="long-icon" />
             </Link>
             <h1 className="font-semibold text-xl sm:text-2xl text-[#EEEEEE] mb-2">
-              Sleep With Nocturn
+              Sleep With Lumosleep
             </h1>
             <div
               onClick={() => handleGoogleLogin()}
@@ -153,7 +153,7 @@ const Login = () => {
             />
 
             <CustomButton
-              bgcolor="bg-bgPurpleDark"
+              bgcolor="bg-mainDark"
               bordercolor="border-mainColor"
               path="#"
               text="Login"
