@@ -71,7 +71,7 @@ const Navbar = () => {
           }`}
           onClick={() => setActiveNav(false)}
         >
-          <XCircle color="#A84DB5" />
+          <XCircle color="#00B6E2" />
         </Button>
         <Link
           to="/"
