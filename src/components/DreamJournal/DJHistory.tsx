@@ -1,12 +1,22 @@
+import { useEffect } from "react";
 import TextTitle from "../custom/TextTitle";
 import { MdOutlineHistory } from "react-icons/md";
-import { listDreamInterpretations } from "@/utils/data";
 import CardHistory from "../custom/CardHistory";
-import { TypeHistory } from "@/utils/types";
+import { TypeDataDream } from "@/utils/types";
 import AOS from "aos";
-import { useEffect } from "react";
+import { FaFileAlt } from "react-icons/fa";
 
-function DJHistory({ setShowModal, setDataDream }: TypeHistory) {
+type DJHistoryProps = {
+  dataDreams: TypeDataDream[];
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedDream: React.Dispatch<React.SetStateAction<TypeDataDream | null>>;
+};
+
+function DJHistory({
+  dataDreams,
+  setShowModal,
+  setSelectedDream,
+}: DJHistoryProps) {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -28,20 +38,31 @@ function DJHistory({ setShowModal, setDataDream }: TypeHistory) {
           History Interpretation <span className="text-mainColor">Dreams</span>
         </TextTitle>
       </div>
-      <div
-        className="w-full p-2 flex gap-3 justify-center flex-wrap mb-5 lg:mb-16"
-      >
-        {listDreamInterpretations.map((item, index) => (
-          <CardHistory
-            handleClick={() => {
-              setDataDream(item);
-              setShowModal(true);
-            }}
-            delay={calculateDelay(index)}
-            key={item.id}
-            {...item}
-          />
-        ))}
+      <div className="w-full p-2 flex gap-3 justify-center flex-wrap mb-5 lg:mb-16">
+        {dataDreams.length > 0 ? (
+          dataDreams.map((item, index) => (
+            <CardHistory
+              handleClick={() => {
+                setSelectedDream(item);
+                setShowModal(true);
+              }}
+              delay={calculateDelay(index)}
+              key={item.id}
+              {...item}
+            />
+          ))
+        ) : (
+          <div
+            className="flex gap-3 items-center"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            <FaFileAlt className="text-slate-200" />
+            <p className="text-center text-lg m-auto text-slate-200 capitalize">
+              Data isn't yet available
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

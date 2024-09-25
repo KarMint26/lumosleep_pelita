@@ -7,7 +7,7 @@ export type TypeDataDream = {
 
 export type TypeHistory = {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setDataDream: React.Dispatch<React.SetStateAction<TypeDataDream>>;
+  setDataDream?: React.Dispatch<React.SetStateAction<TypeDataDream[]>>;
 };
 
 export type TypeBCard = {

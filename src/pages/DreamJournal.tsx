@@ -1,30 +1,33 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { IoRocket } from "react-icons/io5";
+import { toast, ToastContainer } from "react-toastify";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import { id } from "date-fns/locale/id";
+import AOS from "aos";
+
 import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import DefaultView from "@/components/custom/DefaultView";
 import TextTitle from "@/components/custom/TextTitle";
-import { listDreamInterpretations } from "@/utils/data";
-import { useEffect, useState } from "react";
-import { IoRocket } from "react-icons/io5";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { id } from "date-fns/locale/id";
 import ModalResultDream from "@/components/custom/ModalResultDream";
-import { TypeDataDream } from "@/utils/types";
 import DJTutorial from "@/components/DreamJournal/DJTutorial";
 import DJHero from "@/components/DreamJournal/DJHero";
 import DJHistory from "@/components/DreamJournal/DJHistory";
 import convertDate from "@/utils/convertDate";
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import AOS from "aos";
+import { TypeDataDream } from "@/utils/types";
 
-const DreamJournal = () => {
+const DreamJournal: React.FC = () => {
   const [dreamDate, setDreamDate] = useState<Date>(new Date());
   const [loading, setLoading] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [dataDream, setDataDream] = useState<TypeDataDream>(
-    listDreamInterpretations[0]
+  const [dataDreams, setDataDreams] = useState<TypeDataDream[]>([]);
+  const [selectedDream, setSelectedDream] = useState<TypeDataDream | null>(
+    null
   );
   const [valeuInput, setValeuInput] = useState<string>("");
+
+  // Options for API request
   let options = {
     method: "POST",
     url: import.meta.env.VITE_API_URL,
@@ -52,35 +55,59 @@ const DreamJournal = () => {
   };
 
   const handleInterpretation = async () => {
+    if (valeuInput.length < 10) {
+      toast.warning(
+        "Please write down your dream before clicking the button!",
+        {
+          position: "top-right",
+          theme: "colored",
+          className: "font-semibold",
+        }
+      );
+      return;
+    }
+
     try {
       setLoading(true);
       const res = await axios.request(options);
       console.log(res.data);
 
-      const data = {
+      const newDreamData: TypeDataDream = {
         id: Date.now(),
         date: convertDate(dreamDate),
         dream: valeuInput,
         interpret: res.data.result,
       };
 
-      listDreamInterpretations.unshift(data);
+      // Update dataDreams state and localStorage
+      const updatedDataDreams = [newDreamData, ...dataDreams];
+      setDataDreams(updatedDataDreams);
+      localStorage.setItem("history", JSON.stringify(updatedDataDreams));
 
-      setDataDream(data);
+      // Set the new dream as selected dream
+      setSelectedDream(newDreamData);
+
+      // Reset input and show modal
       setValeuInput("");
       setShowModal(true);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
   };
 
+  // Load data history from localStorage on initial load
   useEffect(() => {
     AOS.init({
       once: true,
       duration: 1500,
     });
+
+    const storedDreams = localStorage.getItem("history");
+    if (storedDreams) {
+      setDataDreams(JSON.parse(storedDreams));
+    }
   }, []);
 
   return (
@@ -110,6 +137,7 @@ const DreamJournal = () => {
             <textarea
               id="message"
               rows={4}
+              value={valeuInput}
               onChange={(e) => setValeuInput(e.target.value)}
               className="rounded-xl bg-slate-200 block p-2.5 w-full text-sm text-gray-900 border border-purple-300 focus:ring-purple-500 focus:border-purple-500 lg:text-xl"
               placeholder="Write down the details of your dream here..."
@@ -131,21 +159,7 @@ const DreamJournal = () => {
                 textcolor="text-white"
                 bordercolor="border-secondaryColor"
                 path="#"
-                onhandleclick={() => {
-                  if (!loading && valeuInput.length > 10) {
-                    handleInterpretation();
-                  }
-                  if (valeuInput === "") {
-                    toast.warning(
-                      "Please write down your dream before click button get interpretation, please try again!",
-                      {
-                        position: "top-right",
-                        theme: "colored",
-                        className: "font-semibold",
-                      }
-                    );
-                  }
-                }}
+                onhandleclick={handleInterpretation}
                 customclass="w-fit mt-5"
               />
             </div>
@@ -153,11 +167,16 @@ const DreamJournal = () => {
         </div>
 
         {/* Section History */}
-        <DJHistory setShowModal={setShowModal} setDataDream={setDataDream} />
+        <DJHistory
+          dataDreams={dataDreams}
+          setShowModal={setShowModal}
+          setSelectedDream={setSelectedDream}
+        />
       </DefaultView>
-      {showModal && (
+
+      {showModal && selectedDream && (
         <ModalResultDream
-          interpret={dataDream}
+          interpret={selectedDream}
           handleClick={() => setShowModal(false)}
         />
       )}
