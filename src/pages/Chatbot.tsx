@@ -414,7 +414,7 @@ const Chatbot: React.FC = () => {
             </div>
             {/* Suggestion Chat */}
             <div
-              className={`fixed bottom-36 sm:bottom-40 grid grid-cols-2 lg:grid-cols-4 gap-5 translate-x-[1.2rem] sm:translate-x-0 ${
+              className={`fixed lg:w-[73%] bottom-36 sm:bottom-40 grid grid-cols-2 lg:grid-cols-4 gap-5 translate-x-[1.2rem] sm:translate-x-0 justify-center items-center ${
                 listChat.length < 2
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-0"
@@ -448,7 +448,9 @@ const Chatbot: React.FC = () => {
                 }
               />
               <CardChSuggest
-                icon={<FaBed className="text-red-500 text-2xl sm:text-3xl lg:text-5xl" />}
+                icon={
+                  <FaBed className="text-red-500 text-2xl sm:text-3xl lg:text-5xl" />
+                }
                 text="Consequences of lack of sleep?"
                 onHandleClick={() =>
                   suggestionChat("Consequences of lack of sleep?")
