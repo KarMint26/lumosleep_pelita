@@ -6,8 +6,6 @@ type moodCard = {
   text: string;
   altImg: string;
   delay: number;
-  activeMood: string;
-  handleChangeMood: (q: string) => void;
 };
 
 const MoodCard = ({
@@ -15,27 +13,20 @@ const MoodCard = ({
   moodImg,
   altImg,
   delay,
-  activeMood,
-  handleChangeMood,
 }: moodCard) => {
   useEffect(() => {
     AOS.init({
       once: true,
       duration: 1500,
     });
-  }, [activeMood]);
+  },);
 
   return (
     <React.Fragment>
       <div
         data-aos="zoom-in"
         data-aos-delay={`${delay}`}
-        className={`w-[6.5rem] h-32 sm:w-[8rem] sm:h-[9rem] lg:w-[10rem] lg:h-[11rem] rounded-lg sm:rounded-xl p-3 flex justify-center border-4 items-center flex-col font-semibold cursor-pointer ${
-          activeMood === text
-            ? "bg-mainDark border-secondaryColor"
-            : "bg-mainColor"
-        }`}
-        onClick={() => handleChangeMood(text)}
+        className={`w-[6.5rem] h-32 sm:w-[8rem] sm:h-[9rem] lg:w-[10rem] lg:h-[11rem] rounded-lg sm:rounded-xl p-3 flex justify-center border-4 items-center flex-col font-semibold cursor-pointer bg-mainColor hover:bg-mainDark hover:border-secondaryColor`}
       >
         <img src={moodImg} alt={altImg} />
         <p>{text}</p>
