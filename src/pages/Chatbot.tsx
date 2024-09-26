@@ -11,6 +11,11 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CardLinkChatbot from "@/components/custom/CardLinkChatbot";
 import { FaBookJournalWhills, FaLungs } from "react-icons/fa6";
+import { GiNightSleep } from "react-icons/gi";
+import { GiSleepingBag } from "react-icons/gi";
+import { ImSleepy2 } from "react-icons/im";
+import { FaBed } from "react-icons/fa6";
+import CardChSuggest from "@/components/custom/CardChSuggest";
 
 interface Chat {
   id: number;
@@ -29,7 +34,7 @@ const Chatbot: React.FC = () => {
     {
       id: 1,
       type: "bot",
-      prompt: "Hi!, welcome to lumosleep chatbot. you have any question?",
+      prompt: "Hi!, welcome to Lumosleep chatbot. you have any question?",
       isLoading: false,
       error: null,
     },
@@ -154,6 +159,54 @@ const Chatbot: React.FC = () => {
       });
   };
 
+  const suggestionChat = (sugg: string) => {
+    const newChat = {
+      id: nextId,
+      type: "user",
+      prompt: sugg,
+      isLoading: false,
+      error: null,
+    };
+    setListChat((chat: any) => [...chat, newChat]);
+    setPrompt("");
+    setNextId((prevId) => (prevId += 1));
+
+    const chatbot = {
+      id: nextId + 1,
+      type: "bot",
+      prompt: "",
+      isLoading: true,
+      error: null,
+    };
+    setListChat((chat: any) => [...chat, chatbot]);
+    setNextId((prevId) => (prevId += 1));
+
+    const getData = getResponseFromAPI(sugg);
+
+    getData
+      .then((data) => {
+        console.log(data);
+        handleResponse(data, nextId + 1);
+      })
+      .catch((err) => {
+        setErrorMessage(`Error: ${err.message}`);
+        setListChat((prevListChat) => {
+          return prevListChat.map((chat) => {
+            if (chat.id === nextId + 1) {
+              return {
+                ...chat,
+                prompt: "",
+                isLoading: false,
+                error: err.message,
+              };
+            } else {
+              return chat;
+            }
+          });
+        });
+      });
+  };
+
   return (
     <React.Fragment>
       <div className="flex justify-between items-center">
@@ -180,7 +233,7 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
             <img src={ChatbotHero} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">lumosleep Another Features</p>
+            <p className="text-sm font-semibold">Lumosleep Another Features</p>
             <CardLinkChatbot
               LinkUrl="/dream-journal"
               Icon={<FaBookJournalWhills />}
@@ -232,7 +285,7 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="content flex justify-center items-center flex-col gap-3 -translate-y-[3rem] lg:translate-y-0">
             <img src={ChatbotHero} alt="hero" className="w-44" />
-            <p className="text-sm font-semibold">lumosleep Another Features</p>
+            <p className="text-sm font-semibold">Lumosleep Another Features</p>
             <CardLinkChatbot
               LinkUrl="/dream-journal"
               Icon={<FaBookJournalWhills />}
@@ -274,7 +327,7 @@ const Chatbot: React.FC = () => {
               >
                 <h1 className="text-lg sm:text-xl font-semibold uppercase">
                   <span className="sm:inline-block hidden">Hi! Welcome to</span>{" "}
-                  lumosleep
+                  Lumosleep
                   <span className="text_purple">AI</span>
                 </h1>
               </Link>
@@ -347,7 +400,7 @@ const Chatbot: React.FC = () => {
                       <>
                         <div
                           key={chat.id}
-                          className="box-chat p-3 rounded-lg flex justify-start items-center gap-3"
+                          className="box-chat p-3 rounded-lg flex justify-end items-center gap-3"
                         >
                           <div className="icon-box self-start p-2 flex justify-center items-center rounded-lg bg-fuchsia-500">
                             <BiSolidUser className="text-white text-2xl" />
@@ -359,6 +412,50 @@ const Chatbot: React.FC = () => {
                   </div>
                 ))}
             </div>
+            {/* Suggestion Chat */}
+            <div
+              className={`fixed bottom-36 sm:bottom-40 flex flex-wrap justify-center items-center gap-5 -translate-x-3 sm:translate-x-0 ${
+                listChat.length < 2
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-0"
+              } transition duration-300`}
+            >
+              <CardChSuggest
+                icon={
+                  <GiNightSleep className="text-yellow-500 text-2xl sm:text-3xl" />
+                }
+                text="Briefly explain what insomnia is?"
+                onHandleClick={() =>
+                  suggestionChat("Briefly explain what insomnia is?")
+                }
+              />
+              <CardChSuggest
+                icon={
+                  <GiSleepingBag className="text-emerald-500 text-2xl sm:text-3xl" />
+                }
+                text="Overcoming sleep difficulties?"
+                onHandleClick={() =>
+                  suggestionChat("Overcoming sleep difficulties?")
+                }
+              />
+              <CardChSuggest
+                icon={
+                  <ImSleepy2 className="text-fuchsia-500 text-2xl sm:text-3xl" />
+                }
+                text="Symptoms of difficulty sleeping?"
+                onHandleClick={() =>
+                  suggestionChat("Symptoms of difficulty sleeping?")
+                }
+              />
+              <CardChSuggest
+                icon={<FaBed className="text-red-500 text-2xl sm:text-3xl" />}
+                text="Consequences of lack of sleep?"
+                onHandleClick={() =>
+                  suggestionChat("Consequences of lack of sleep?")
+                }
+              />
+            </div>
+
             <form
               onSubmit={handleSubmit}
               className="prompt-field bg-background transition duration-300 fixed bottom-0 w-[84%] sm:w-[79.5%] lg:w-[73%] h-28 z[88]"
@@ -388,7 +485,7 @@ const Chatbot: React.FC = () => {
               <p className="text-center translate-y-7 text-[0.65rem] sm:text-xs font-normal">
                 This Chatbot Was Developed By{" "}
                 <a className="text_purple font-bold" href="#" target="_blank">
-                  Codex Novus.
+                  Natus Vincere.
                 </a>
               </p>
             </form>

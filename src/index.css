@@ -143,7 +143,7 @@
   .custom-loader {
     width: 35px;
     height: 35px;
-    --c: radial-gradient(farthest-side, #cc72d8 92%, #0000);
+    --c: radial-gradient(farthest-side, #00B6E2 92%, #0000);
     background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
       var(--c) 0 50%;
     background-size: 8px 8px;
@@ -156,7 +156,7 @@
     position: absolute;
     inset: 0;
     margin: 3px;
-    background: repeating-conic-gradient(#0000 0 35deg, #cc72d8 0 90deg);
+    background: repeating-conic-gradient(#0000 0 35deg, #00B6E2 0 90deg);
     -webkit-mask: radial-gradient(
       farthest-side,
       #0000 calc(100% - 3px),
