@@ -171,6 +171,7 @@ const DreamJournal: React.FC = () => {
           dataDreams={dataDreams}
           setShowModal={setShowModal}
           setSelectedDream={setSelectedDream}
+          setDataDreams={setDataDreams}
         />
       </DefaultView>
 

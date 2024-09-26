@@ -5,17 +5,20 @@ import CardHistory from "../custom/CardHistory";
 import { TypeDataDream } from "@/utils/types";
 import AOS from "aos";
 import { FaFileAlt } from "react-icons/fa";
+import Alert from "./Alert";
 
 type DJHistoryProps = {
   dataDreams: TypeDataDream[];
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedDream: React.Dispatch<React.SetStateAction<TypeDataDream | null>>;
+  setDataDreams: React.Dispatch<React.SetStateAction<TypeDataDream[]>>;
 };
 
 function DJHistory({
   dataDreams,
   setShowModal,
   setSelectedDream,
+  setDataDreams,
 }: DJHistoryProps) {
   useEffect(() => {
     AOS.init({
@@ -38,7 +41,12 @@ function DJHistory({
           History Interpretation <span className="text-mainColor">Dreams</span>
         </TextTitle>
       </div>
-      <div className="w-full p-2 flex gap-3 justify-center flex-wrap mb-5 lg:mb-16">
+      {dataDreams.length > 0 && <Alert setDataDreams={setDataDreams} />}
+      <div
+        className={`w-full p-2 flex gap-3 justify-center flex-wrap mb-5 lg:mb-16 ${
+          dataDreams.length > 0 ? "mt-5 lg:mt-10" : ""
+        } `}
+      >
         {dataDreams.length > 0 ? (
           dataDreams.map((item, index) => (
             <CardHistory
