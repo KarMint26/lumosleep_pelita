@@ -414,7 +414,7 @@ const Chatbot: React.FC = () => {
             </div>
             {/* Suggestion Chat */}
             <div
-              className={`fixed bottom-36 sm:bottom-40 flex flex-wrap justify-center items-center gap-5 -translate-x-3 sm:translate-x-0 ${
+              className={`fixed bottom-36 sm:bottom-40 grid grid-cols-2 lg:grid-cols-4 gap-5 translate-x-[1.2rem] sm:translate-x-0 ${
                 listChat.length < 2
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-0"
@@ -422,7 +422,7 @@ const Chatbot: React.FC = () => {
             >
               <CardChSuggest
                 icon={
-                  <GiNightSleep className="text-yellow-500 text-2xl sm:text-3xl" />
+                  <GiNightSleep className="text-yellow-500 text-2xl sm:text-3xl lg:text-5xl" />
                 }
                 text="Briefly explain what insomnia is?"
                 onHandleClick={() =>
@@ -431,7 +431,7 @@ const Chatbot: React.FC = () => {
               />
               <CardChSuggest
                 icon={
-                  <GiSleepingBag className="text-emerald-500 text-2xl sm:text-3xl" />
+                  <GiSleepingBag className="text-emerald-500 text-2xl sm:text-3xl lg:text-5xl" />
                 }
                 text="Overcoming sleep difficulties?"
                 onHandleClick={() =>
@@ -440,7 +440,7 @@ const Chatbot: React.FC = () => {
               />
               <CardChSuggest
                 icon={
-                  <ImSleepy2 className="text-fuchsia-500 text-2xl sm:text-3xl" />
+                  <ImSleepy2 className="text-fuchsia-500 text-2xl sm:text-3xl lg:text-5xl" />
                 }
                 text="Symptoms of difficulty sleeping?"
                 onHandleClick={() =>
@@ -448,7 +448,7 @@ const Chatbot: React.FC = () => {
                 }
               />
               <CardChSuggest
-                icon={<FaBed className="text-red-500 text-2xl sm:text-3xl" />}
+                icon={<FaBed className="text-red-500 text-2xl sm:text-3xl lg:text-5xl" />}
                 text="Consequences of lack of sleep?"
                 onHandleClick={() =>
                   suggestionChat("Consequences of lack of sleep?")

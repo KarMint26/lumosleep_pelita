@@ -10,7 +10,7 @@ const CardChSuggest = ({ icon, text, onHandleClick }: cardsg) => {
   return (
     <React.Fragment>
       <div
-        className="card-suggest w-32 lg:w-48 text-center h-fit flex justify-center items-center flex-col gap-2 bg-background ring ring-slate-600 border hover:border-mainColor p-3 sm:p-4 rounded-xl transition duration-300 cursor-pointer"
+        className="card-suggest w-32 lg:w-[81%] text-center h-fit flex justify-center items-center flex-col lg:flex-row gap-2 bg-background ring ring-slate-600 border hover:border-mainColor p-3 sm:p-4 rounded-xl transition duration-300 cursor-pointer"
         onClick={onHandleClick}
       >
         {icon}
