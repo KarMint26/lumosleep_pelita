@@ -7,26 +7,28 @@ import { HeroSoundscapes } from "@/utils";
 import { listMood, soundList } from "@/utils/data";
 import MoodCard from "@/components/soundscapes/MoodCard";
 import SoundCard from "@/components/soundscapes/SoundCard";
-import { FaCirclePause, FaCirclePlay, FaForward } from "react-icons/fa6";
+import {
+  FaCirclePause,
+  FaCirclePlay,
+  FaCircleStop,
+  FaForward,
+} from "react-icons/fa6";
 import { LuArrowUpToLine } from "react-icons/lu";
 import { RiRobot2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Soundscapes = () => {
-  const [moodActive, setMoodActive] = useState<string>("Anxious");
   const [titleSound, setTitleSound] = useState<string>("Bird Song");
   const [soundImg, setSoundImg] = useState<any>(
     "/assets/soundscapes/sound-list-img/birdsong.png"
   );
   const [position, setPosition] = useState<number>(0);
   const [isPlay, setIsPlay] = useState<boolean>(false);
-
-  const handleChangeMood = (activeMood: string) => {
-    setMoodActive(activeMood);
-  };
+  const [stayPlay, setStayPlay] = useState<boolean>(false);
 
   const handleActiveSound = (title: string, soundImg: any, pos: number) => {
     setIsPlay(true);
+    setStayPlay(true);
     setTitleSound(title);
     setSoundImg(soundImg);
     setPosition(pos);
@@ -34,6 +36,10 @@ const Soundscapes = () => {
 
   const nonaktifSound = () => {
     setIsPlay(false);
+  };
+
+  const aktifSound = () => {
+    setIsPlay(true);
   };
 
   const nextSound = () => {
@@ -131,7 +137,7 @@ const Soundscapes = () => {
           data-aos-delay="100"
           className="font-semibold text-xl sm:text-3xl lg:text-5xl"
         >
-          Choose according to your mood condition
+          Addressing the following list of user moods
         </h1>
         <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-3 sm:gap-5 place-items-center">
           {listMood.map((data) => (
@@ -141,8 +147,6 @@ const Soundscapes = () => {
               altImg={`mood-img-${data.id}`}
               text={data.name}
               delay={data.delay}
-              activeMood={moodActive}
-              handleChangeMood={handleChangeMood}
             />
           ))}
         </div>
@@ -178,14 +182,14 @@ const Soundscapes = () => {
       {/* Audio Player */}
       <div
         className={`fixed flex items-center justify-center bottom-5 right-[50%] translate-x-[50%] bg-mainDark border-2 lg:border-4 border-gray-300 w-[80%] sm:w-[70%] lg:w-[50%] p-3 sm:p-4 lg:p-5 px-3 sm:px-4 lg:px-7 rounded-full gap-3 sm:gap-4 lg:gap-7 transition-all duration-300 ${
-          isPlay ? "scale-100 opacity-100" : "scale-0 opacity-0"
+          stayPlay ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
         <div className="flex flex-col justify-center items-center gap-2 sm:gap-3 h-fit px-1">
           <img
             src={soundImg}
             alt="sound-img"
-            className="w-14 sm:w-28 lg:w-36 rounded-lg"
+            className="w-14 sm:w-28 lg:w-36 rounded-lg ring ring-secondaryColor"
           />
           <p className="text-[0.7rem] sm:text-xl lg:text-2xl font-normal">
             {titleSound}
@@ -193,12 +197,19 @@ const Soundscapes = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-3 sm:gap-4 lg:gap-6">
           <h3 className="font-semibold text-base sm:text-3xl lg:text-4xl">
-            lumosleep Soundscapes
+            Lumosleep Soundscapes
           </h3>
           <div className="flex justify-center items-center gap-4 sm:gap-5 lg:gap-6 text-xl sm:text-3xl lg:text-4xl">
             <FaForward
               className="rotate-180 cursor-pointer"
               onClick={() => prevSound()}
+            />
+            <FaCircleStop
+              className="cursor-pointer"
+              onClick={() => {
+                setStayPlay(false);
+                setIsPlay(false);
+              }}
             />
             {isPlay ? (
               <FaCirclePause
@@ -206,7 +217,10 @@ const Soundscapes = () => {
                 onClick={() => nonaktifSound()}
               />
             ) : (
-              <FaCirclePlay className="cursor-pointer" />
+              <FaCirclePlay
+                className="cursor-pointer"
+                onClick={() => aktifSound()}
+              />
             )}
             <FaForward className="cursor-pointer" onClick={() => nextSound()} />
           </div>
