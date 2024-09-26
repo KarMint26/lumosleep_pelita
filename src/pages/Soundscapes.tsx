@@ -4,14 +4,14 @@ import DefaultView from "@/components/custom/DefaultView";
 import CustomButtonWithIcon from "@/components/custom/CustomButtonWithIcon";
 import { BsSoundwave } from "react-icons/bs";
 import { HeroSoundscapes } from "@/utils";
-import { listMood, soundList } from "@/utils/data";
-import MoodCard from "@/components/soundscapes/MoodCard";
+import { soundList } from "@/utils/data";
 import SoundCard from "@/components/soundscapes/SoundCard";
 import {
   FaCirclePause,
   FaCirclePlay,
   FaCircleStop,
   FaForward,
+  FaMusic,
 } from "react-icons/fa6";
 import { LuArrowUpToLine } from "react-icons/lu";
 import { RiRobot2Fill } from "react-icons/ri";
@@ -90,17 +90,16 @@ const Soundscapes = () => {
                 className="font-bold text-2xl sm:text-4xl lg:text-6xl"
               >
                 Improve your sleep quality with{" "}
-                <span className="text-mainColor">lumosleep Soundscapes</span>
+                <span className="text-mainColor">Lumosleep Soundscapes</span>
               </h1>
               <p
                 data-aos="fade-left"
                 data-aos-delay="150"
                 className="text-sm md:text-base lg:text-[1.25rem]"
               >
-                lumosleep Soundscapes comes with a variety of soothing audios to
-                help you fall asleep quickly. Choose the audio that suits your
-                mood, feel your body and mind relax, and enjoy a deep, quality
-                sleep.
+                Lumosleep Soundscapes comes with a variety of soothing audio to
+                help you fall asleep quickly and comfortably. Try using this
+                feature.
               </p>
               <div data-aos="fade-left" data-aos-delay="250">
                 <CustomButtonWithIcon
@@ -130,36 +129,16 @@ const Soundscapes = () => {
         </div>
       </DefaultView>
 
-      {/* Mood List */}
-      <div className="mood_list_container containers flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4">
-        <h1
-          data-aos="fade-right"
-          data-aos-delay="100"
-          className="font-semibold text-xl sm:text-3xl lg:text-5xl"
-        >
-          Addressing the following list of user moods
-        </h1>
-        <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-8 gap-3 sm:gap-5 place-items-center">
-          {listMood.map((data) => (
-            <MoodCard
-              key={data.id}
-              moodImg={data.numberImg}
-              altImg={`mood-img-${data.id}`}
-              text={data.name}
-              delay={data.delay}
-            />
-          ))}
-        </div>
-      </div>
-
       {/* Sounds List */}
       <div className="sound_list containers flex flex-col gap-3 py-4 px-5 sm:px-6 lg:px-8 mb-4 md:mb-10">
         <h1
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-delay="150"
-          className="font-semibold text-xl sm:text-3xl lg:text-5xl"
+          className="font-semibold text-center text-xl sm:text-3xl lg:text-5xl mb-2 sm:mb-4 flex justify-center items-center gap-2 sm:gap-5"
         >
-          Choose your preferred audio
+          <FaMusic />
+          Choose Your Preferred Audio
+          <FaMusic />
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 lg:gap-8 place-items-center mt-2 sm:mt-3">
           {soundList.map((data) => (
