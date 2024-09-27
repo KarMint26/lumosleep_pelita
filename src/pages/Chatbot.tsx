@@ -451,7 +451,7 @@ const Chatbot: React.FC = () => {
                 icon={
                   <FaBed className="text-red-500 text-2xl sm:text-3xl lg:text-5xl" />
                 }
-                text="Consequences of lack of sleep?"
+                text="What consequences of lack of sleep?"
                 onHandleClick={() =>
                   suggestionChat("Consequences of lack of sleep?")
                 }
