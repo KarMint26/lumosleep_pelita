@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import AOS from "aos";
 import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 type soundCard = {
   id: number;
@@ -34,19 +35,26 @@ const SoundCard = ({
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const location = useLocation();
+  const pathname = location.pathname.split("/").pop();
+
   useEffect(() => {
     const currentAudio = audioRef.current;
 
-    if (currentAudio) {
-      currentAudio.loop = true;
+    if (pathname === "soundscapes") {
+      if (currentAudio) {
+        currentAudio.loop = true;
 
-      if (isPlay && activeTitle === title) {
-        currentAudio.play().catch(console.error);
-      } else {
-        currentAudio.pause();
+        if (isPlay && activeTitle === title) {
+          currentAudio.play().catch(console.error);
+        } else {
+          currentAudio.pause();
+        }
       }
+    } else {
+      currentAudio?.pause();
     }
-  }, [isPlay, activeTitle, title]);
+  }, [isPlay, activeTitle, title, pathname]);
 
   return (
     <React.Fragment>
@@ -73,7 +81,7 @@ const SoundCard = ({
             />
           ) : (
             <FaCirclePlay
-              onClick={() => handlePlay(title, imgS, id-1)}
+              onClick={() => handlePlay(title, imgS, id - 1)}
               className="text-xl sm:text-2xl cursor-pointer"
             />
           )}

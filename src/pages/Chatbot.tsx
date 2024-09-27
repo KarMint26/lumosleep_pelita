@@ -414,7 +414,7 @@ const Chatbot: React.FC = () => {
             </div>
             {/* Suggestion Chat */}
             <div
-              className={`fixed lg:w-[73%] bottom-36 sm:bottom-40 grid grid-cols-2 lg:grid-cols-4 gap-5 translate-x-[1.2rem] sm:translate-x-0 justify-center items-center ${
+              className={`fixed w-[84%] sm:w-[79.5%] lg:w-[73%] bottom-36 sm:bottom-40 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:translate-x-0 justify-center items-center ${
                 listChat.length < 2
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-0"
